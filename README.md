@@ -1,7 +1,7 @@
 # dielectricData
 dielectric constant  calculate
 
-system	:Window 10
+system	:Kubuntu 15.10
 
 language:Qt C++
 
