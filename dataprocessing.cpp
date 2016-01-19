@@ -60,14 +60,14 @@ void dataProcessing::onOpenDataClicked()
 
     for(int i=0;i<ui->TableList->columnCount();++i)
     {
-        obj.addField(i,ui->TableList->horizontalHeaderItem(i)->text(), "double");
+        obj.addField(i,ui->TableList->horizontalHeaderItem(i)->text(), "char(20)");
     }
 
     int readVal=obj.excel2Table();
 
     if( readVal > 0)
     {
-        QMessageBox::information(this, tr("Read Data Done"),QString(tr("%1 records imported!")).arg(readVal));
+        QMessageBox::information(this, tr("数据读取结束："),QString(tr("共读取%1条数据！")).arg(readVal));
     }
 
 }
@@ -175,13 +175,13 @@ void dataProcessing::onSaveDataClicked()
     QtExcel obj(fileName, this->windowTitle(), ui->TableList);
     for(int i=0;i<ui->TableList->columnCount();++i)
     {
-        obj.addField(i,ui->TableList->horizontalHeaderItem(i)->text(), "double");
+        obj.addField(i,ui->TableList->horizontalHeaderItem(i)->text(), "char(20)");
     }
 
     int retVal = obj.table2Excel();
     if( retVal > 0)
     {
-        QMessageBox::information(this, tr("Save Data Done"),QString(tr("%1 records exported!")).arg(retVal));
+        QMessageBox::information(this, tr("数据存储结束："),QString(tr("共保存%1条数据！")).arg(retVal));
     }
 }
 
