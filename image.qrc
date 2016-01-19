@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/pic">
-        <file alias="dda">image/dda.png</file>
-        <file alias="input">image/input.png</file>
-        <file alias="draw">image/draw.png</file>
-    </qresource>
-</RCC>
