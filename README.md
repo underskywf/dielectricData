@@ -11,3 +11,4 @@ Lib 	:Qt 5.5.1 for Windows 32-bit (MinGW 4.9.2)
 
 plug-in :Qwt 6.1.2
 
+Note:20:30 19/01/2016
