@@ -100,12 +100,6 @@ dataAnalysis::dataAnalysis(const QTableWidget *dataTable,int nowIndex):
 
     ui->qwtPlot->insertLegend(new QwtLegend, QwtPlot::BottomLegend);
 
-    //使用滚轮放大/缩小
-    //(void) new QwtPlotMagnifier(ui->qwtPlot->canvas());
-
-    //使用鼠标左键平移
-    //(void) new QwtPlotPanner(ui->qwtPlot->canvas());
-
     // LeftButton for the zooming
     // MidButton for the panning
     // RightButton: zoom out by 1

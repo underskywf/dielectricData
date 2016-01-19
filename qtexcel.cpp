@@ -4,11 +4,6 @@
 #include <QVariant>
 #include <QStandardItem>
 
-/*
- * 用QODBC 链接Excel
- * 然后对QTableView执行SQL语句来处理数据
-*/
-
 const int SHEETROWSMAX = 50000;
 
 int QtExcel::createConnect(QSqlDatabase &db,QString flag)
@@ -31,7 +26,6 @@ int QtExcel::createConnect(QSqlDatabase &db,QString flag)
     if(!db.open())//打开数据库
     {
         qDebug() << "ExportExcelObject::export2Excel failed: Create Excel file failed by DRIVER={Microsoft Excel Driver (*.xls)}.";
-        //QSqlDatabase::removeDatabase("excelexport");
         return -3;
     }
 
@@ -49,23 +43,6 @@ int QtExcel::createSheet(QSqlQuery &query, int rowCount, int sheetNum)
     //===========================================================//
     //create the table (sheet in Excel file)
     sSql = QString("CREATE TABLE [%1_表%2] (").arg(sheetName).arg(sheetNum);//创建一个名为sheetName的表格 CREAT TABLE sheetName (
-    //http://www.1keydata.com/cn/sql/sql-create.php
-    /*
-     * 表格被分为栏位 (column) 及列位 (row)。每一列代表一笔资料，而每一栏代表一笔资料的一部份。
-     * 举例来说，如果我们有一个记载顾客资料的表格，那栏位就有可能包括姓、名、地址、城市、国家、
-     * 生日．．．等等。当我们对表格下定义时，我们需要注明栏位的标题，以及那个栏位的资料种类。
-     * 那，资料种类是什么呢？资料可能是以许多不同的形式存在的。它可能是一个整数 (例如 1)，、一个实数(例如 0.55)
-     * 、一个字串 (例如 'sql')、一个日期/时间 (例如 '2000-JAN-25 03:22:22')、或甚至是 以二进法 (binary) 的状
-     * 态存在。当我们在对一个表格下定义时，我们需要对每一个栏位的资料种类下定义。(例如 '姓' 这个栏位的资料种类是 char(50)
-     * ━━代表这是一个 50 个字符的字串)。我们需要注意的一点是不同的数据库有不同的资料种类，所以在对表格做出定义之前最好先参考
-     * 一下数据库本身的说明。
-     * CREATE TABLE 的语法是：
-     * CREATE TABLE "表格名"("栏位 1" "栏位 1 资料种类","栏位 2" "栏位 2 资料种类",... );
-     *
-     * 若我们要建立我们上面提过的顾客表格，我们就打入以下的 SQL：
-     * CREATE TABLE Customer(First_Name char(50),Last_Name char(50),Address char(50),City char(50),
-     * Country char(25),Birth_Date datetime);
-     */
 
     for (int i = 0; i < fieldList.size(); i++)//构造CREAT TABLE sheetName ( 之后的语句
     {
@@ -187,9 +164,6 @@ int QtExcel::readSheet(QSqlQuery &query, int sheetNum)
     {
        for(int c=0;c<fieldList.size();++c)
         {
-            //tableView->setItem(readVal,c,new QTableWidgetItem(tr("%1").
-            //                                              arg(query.value(c).toDouble())));
-
            tableView->model()->setData(tableView->model()->index(readVal+SHEETROWSMAX*sheetNum,c),
                                        QVariant(tr("%1").arg(query.value(c).toDouble())));
         }
@@ -216,25 +190,3 @@ int QtExcel::excel2Table()
 
     return readVal;
 }
-
-/*
- *  QSqlQuery query;
-    query.prepare("INSERT INTO person (id, forename, surname) "
-                  "VALUES (?, ?, ?)");
-    query.bindValue(0, 1001);
-    query.bindValue(1, "Bart");
-    query.bindValue(2, "Simpson");
-    query.exec();
- *
- */
-/*
- * 综上所述，存储主要步骤为:
- * 1.判断栏位（colum）是否为空
- * 2.建立数据库（驱动类型，链接，名称）
- * 3.创建表单（删除同名表单，之后 CREAT TABLE [表单名] ( "栏位1" "栏位1种类"{,"栏位2" "栏位2种类"...});
- * 4.插入资料
- * 5.绑定值
- *
- * 读取主要步骤为：
- *
- */
