@@ -14,3 +14,4 @@ plug-in :Qwt 6.1.2
 Note:23:00 19/01/2016
 
 This is Windows!!
+God! My computer is DEAD!!!!
