@@ -23,9 +23,9 @@ dataInput::dataInput(QWidget *parent) :
     ui->TStep->setValidator(new QRegExpValidator(double_100g,ui->TStep));
 
     ui->VA->setValidator(new QRegExpValidator(double_100g,ui->VA));
-    ui->VB->setValidator(new QRegExpValidator(double_100g,ui->VB));
-    ui->VB1->setValidator(new QRegExpValidator(double_100g,ui->VB1));
-     ui->VE->setValidator(new QRegExpValidator(double_100g,ui->VE));
+    ui->MY2O3->setValidator(new QRegExpValidator(double_100g,ui->MY2O3));
+    ui->MNA2O->setValidator(new QRegExpValidator(double_100g,ui->MNA2O));
+     ui->MAL2O3->setValidator(new QRegExpValidator(double_100g,ui->MAL2O3));
 
     connect(ui->OkButton,&QPushButton::clicked,this,&dataInput::onOkClicked);
     connect(ui->CancelButton,&QPushButton::clicked,this,&dataInput::close);
@@ -46,10 +46,10 @@ void dataInput::init()
     ui->TEnd->setText("2683.15");
     ui->TStep->setText("0");
 
-    ui->VA->setText("10.0");
-    ui->VB->setText("10");
-    ui->VB1->setText("10");
-    ui->VE->setText("10");
+    ui->VA->setText("1.060");
+    ui->MY2O3->setText("100");
+    ui->MNA2O->setText("0");
+    ui->MAL2O3->setText("0");
 }
 
 void dataInput::onOkClicked()
@@ -62,9 +62,9 @@ void dataInput::onOkClicked()
                 <<ui->TEnd->text()
                 <<ui->TStep->text()
                 <<ui->VA->text()
-                <<ui->VB->text()
-                <<ui->VB1->text()
-               <<ui->VE->text();
+                <<ui->MY2O3->text()
+                <<ui->MNA2O->text()
+               <<ui->MAL2O3->text();
     emit sendData(dataInputStr);
 }
 

@@ -55,14 +55,7 @@
         <item row="1" column="0">
          <widget class="QCheckBox" name="CBJiantujinshu">
           <property name="text">
-           <string>碱土金属氧化物</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QCheckBox" name="CBYanghualv">
-          <property name="text">
-           <string>Al2O3等氧化物</string>
+           <string>碱土金属氧化物及Al2O3等氧化物</string>
           </property>
          </widget>
         </item>
@@ -148,7 +141,7 @@
         <rect>
          <x>0</x>
          <y>20</y>
-         <width>384</width>
+         <width>409</width>
          <height>52</height>
         </rect>
        </property>
@@ -226,26 +219,16 @@
           <item>
            <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>参数A</string>
+             <string>晶格常数（nm）</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="VA"/>
-          </item>
-         </layout>
-        </item>
-        <item row="0" column="1">
-         <layout class="QHBoxLayout" name="horizontalLayout_8">
-          <item>
-           <widget class="QLabel" name="label_8">
+           <widget class="QLineEdit" name="VA">
             <property name="text">
-             <string>参数B</string>
+             <string>1.060</string>
             </property>
            </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="VB"/>
           </item>
          </layout>
         </item>
@@ -254,12 +237,16 @@
           <item>
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>参数B1</string>
+             <string>碱金属氧化物含量(%)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="VB1"/>
+           <widget class="QLineEdit" name="MNA2O">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -268,12 +255,34 @@
           <item>
            <widget class="QLabel" name="label_12">
             <property name="text">
-             <string>参数E</string>
+             <string>氧化铝氧化物含量(%)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="VE"/>
+           <widget class="QLineEdit" name="MAL2O3">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>氧化钇纯度(%)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="MY2O3">
+            <property name="text">
+             <string>100</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>

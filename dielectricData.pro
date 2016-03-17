@@ -13,7 +13,7 @@ INCLUDEPATH +=C:\Qwt-6.1.2\include
 #//linux
 INCLUDEPATH+=/usr/local/qwt-6.1.2/include
 #windows
-#LIBS+= -lqwtd
+LIBS+= -lqwtd
 #linux
 LIBS+=-L/usr/local/qwt-6.1.2/lib -lqwt -Wl,-rpath,/usr/local/qwt-6.1.2/lib
 

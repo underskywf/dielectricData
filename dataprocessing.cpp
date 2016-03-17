@@ -43,7 +43,7 @@ void dataProcessing::init()
 {
     inputData<<"1.0"<<"20.0"<<"0.01"
              <<"298.15"<<"2683.15"<<"1000.0"
-            <<"1.0"<<"1.0"<<"100.0"<<"10.0";
+            <<"1.060"<<"100.0"<<"0.0"<<"0.0";
 
 }
 
@@ -94,9 +94,9 @@ void dataProcessing::onCalculateClicked()
     double TStepVal=1000.0;
 
     double VAVal=1.0;
-    double VBVal=1.0;
-    double VB1Val=100.0;
-    double VEVal=10.0;
+    double VY2O3Val=1.0;
+    double VNA2OVal=100.0;
+    double VAL2O3Val=10.0;
 
     //频率参数
     FStartVal=(inputData.at(0)).toDouble();
@@ -108,9 +108,9 @@ void dataProcessing::onCalculateClicked()
     TStepVal=(inputData.at(5)).toDouble();
     //其它参数
     VAVal=(inputData.at(6)).toDouble();
-    VBVal=(inputData.at(7)).toDouble();
-    VB1Val=(inputData.at(8)).toDouble();
-    VEVal=(inputData.at(9)).toDouble();
+    VY2O3Val=(inputData.at(7)).toDouble();
+    VNA2OVal=(inputData.at(8)).toDouble();
+    VAL2O3Val=(inputData.at(9)).toDouble();
 
     double frequency=FStartVal;
     double temp =TStartVal;
@@ -142,14 +142,14 @@ void dataProcessing::onCalculateClicked()
             if(j>0) temperature+=TStepVal;
             if(temperature>TEndVal) temperature=TEndVal;
 
-            Epsilon=VEVal+VAVal*qPow(10,18)/(temperature+frequency*qPow(10,9)*frequency*qPow(10,9)*
-                                             VB1Val*VB1Val*qExp(2*VBVal/temperature));
+            Epsilon=VAL2O3Val+VAVal*qPow(10,18)/(temperature+frequency*qPow(10,9)*frequency*qPow(10,9)*
+                                             VNA2OVal*VNA2OVal*qExp(2*VY2O3Val/temperature));
             TANEpsilon=
             VAVal*qPow(10,18)*frequency*qPow(10,9)*
-                    VB1Val*qExp(VBVal/temperature)/(VAVal*qPow(10,18)+
-                                                    temperature*VEVal*(1+frequency*qPow(10,9)*
-                                                                       frequency*qPow(10,9)*VB1Val*VB1Val*
-                                                                       qExp(2*VBVal/temperature)));
+                    VNA2OVal*qExp(VY2O3Val/temperature)/(VAVal*qPow(10,18)+
+                                                    temperature*VAL2O3Val*(1+frequency*qPow(10,9)*
+                                                                       frequency*qPow(10,9)*VNA2OVal*VNA2OVal*
+                                                                       qExp(2*VY2O3Val/temperature)));
 
             ui->TableList->setItem(i*TNumber+j, 0, new QTableWidgetItem(tr("%1").arg(i*TNumber+j+1)));                                                                           
             ui->TableList->setItem(i*TNumber+j, 1, new QTableWidgetItem(tr("%1").arg(frequency)));
