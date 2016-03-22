@@ -10,10 +10,10 @@
 #include <qwt_plot_zoomer.h>
 #include <qwt_plot_renderer.h>
 
-class MyZoomer: public QwtPlotZoomer
+class Wfzoomer: public QwtPlotZoomer
 {
 public:
-    MyZoomer( QWidget *canvas ):
+    Wfzoomer( QWidget *canvas ):
         QwtPlotZoomer( canvas )
     {
         setTrackerMode( AlwaysOn );
@@ -104,10 +104,10 @@ dataAnalysis::dataAnalysis(const QTableWidget *dataTable,int nowIndex):
     // MidButton for the panning
     // RightButton: zoom out by 1
     // Ctrl+RighButton: zoom out to full size
-    QwtPlotZoomer* zoomer = new MyZoomer( ui->qwtPlot->canvas() );
-    zoomer->setMousePattern( QwtEventPattern::MouseSelect2,
+    QwtPlotZoomer* larger = new Wfzoomer( ui->qwtPlot->canvas() );
+    larger->setMousePattern( QwtEventPattern::MouseSelect2,
         Qt::RightButton, Qt::ControlModifier );
-    zoomer->setMousePattern( QwtEventPattern::MouseSelect3,
+    larger->setMousePattern( QwtEventPattern::MouseSelect3,
         Qt::RightButton );
 
     QwtPlotPanner *panner = new QwtPlotPanner( ui->qwtPlot->canvas() );

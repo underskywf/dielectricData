@@ -22,10 +22,7 @@ dataInput::dataInput(QWidget *parent) :
     ui->TEnd->setValidator(new QRegExpValidator(double_100g,ui->TEnd));
     ui->TStep->setValidator(new QRegExpValidator(double_100g,ui->TStep));
 
-    ui->VA->setValidator(new QRegExpValidator(double_100g,ui->VA));
-    ui->VB->setValidator(new QRegExpValidator(double_100g,ui->VB));
-    ui->VB1->setValidator(new QRegExpValidator(double_100g,ui->VB1));
-     ui->VE->setValidator(new QRegExpValidator(double_100g,ui->VE));
+    ui->MEX->setValidator(new QRegExpValidator(double_100g,ui->MEX));
 
     connect(ui->OkButton,&QPushButton::clicked,this,&dataInput::onOkClicked);
     connect(ui->CancelButton,&QPushButton::clicked,this,&dataInput::close);
@@ -38,6 +35,8 @@ dataInput::~dataInput()
 
 void dataInput::init()
 {
+    ui->y2o3Pure->setChecked(true);
+
     ui->FStart->setText("1.0");
     ui->FEnd->setText("20.0");
     ui->FStep->setText("0.01");
@@ -46,25 +45,29 @@ void dataInput::init()
     ui->TEnd->setText("2683.15");
     ui->TStep->setText("0");
 
-    ui->VA->setText("10.0");
-    ui->VB->setText("10");
-    ui->VB1->setText("10");
-    ui->VE->setText("10");
+    ui->MEX->setText("0");
 }
 
 void dataInput::onOkClicked()
 {
     QStringList dataInputStr;
+
+    QString kind="y2o3";
+    if(ui->y2o3Pure->isChecked())
+        kind="y2o3";
+    if(ui->Na2O->isChecked())
+        kind="na2o";
+    if(ui->Al2O3->isChecked())
+        kind="al2o3";
+
     dataInputStr<<ui->FStart->text()
                 <<ui->FEnd->text()
                 <<ui->FStep->text()
                 <<ui->TStart->text()
                 <<ui->TEnd->text()
                 <<ui->TStep->text()
-                <<ui->VA->text()
-                <<ui->VB->text()
-                <<ui->VB1->text()
-               <<ui->VE->text();
+                <<ui->MEX->text()
+                <<kind;
     emit sendData(dataInputStr);
 }
 

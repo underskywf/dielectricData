@@ -9,7 +9,7 @@ QT       += core gui sql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 INCLUDEPATH +=C:\Qwt-6.1.2\include
-LIBS+= -lqwtd
+LIBS+= -lqwt
 
 TARGET = dielectricData
 TEMPLATE = app

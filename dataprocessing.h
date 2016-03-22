@@ -31,10 +31,17 @@ public slots:
     void receiveData(const QStringList inputData);
 
 private:
+    void y2o3Pure(double &Epsilon1,double &Epsilon11,const double &temperature,const double &frequency );
+    void y2o3Na2O(double &Epsilon1,double &Epsilon11,const double &temperature,const double &frequency );
+    void y2o3Al2O3(double &Epsilon1,double &Epsilon11,const double &temperature,const double &frequency );
+
+private:
     Ui::dataProcessing *ui;
     QVector<dataInput*> inputDialog;
     QVector<dataAnalysis*> analysisDialog;
     QStringList inputData;
+
+    double MEXVal;
 };
 
 #endif // DATAPROCESSING_H

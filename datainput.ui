@@ -24,45 +24,45 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QGroupBox" name="groupBox_4">
+     <widget class="QGroupBox" name="Kind">
       <property name="title">
        <string>掺杂类型设置</string>
       </property>
-      <widget class="QWidget" name="layoutWidget_6">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>0</x>
+         <x>1</x>
          <y>20</y>
-         <width>384</width>
-         <height>52</height>
+         <width>391</width>
+         <height>44</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="0">
-         <widget class="QCheckBox" name="CBNone">
-          <property name="text">
-           <string>无掺杂</string>
-          </property>
-         </widget>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_11">
+          <item>
+           <widget class="QRadioButton" name="y2o3Pure">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="text">
+             <string>理想氧化钇材料</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="Na2O">
+            <property name="text">
+             <string>含碱金属氧化物杂质氧化钇材料</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
-        <item row="0" column="1">
-         <widget class="QCheckBox" name="CBJianjinshu">
+        <item>
+         <widget class="QRadioButton" name="Al2O3">
           <property name="text">
-           <string>碱金属氧化物</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QCheckBox" name="CBJiantujinshu">
-          <property name="text">
-           <string>碱土金属氧化物</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QCheckBox" name="CBYanghualv">
-          <property name="text">
-           <string>Al2O3等氧化物</string>
+           <string>含碱土金属氧化物或Al2O3等氧化物杂质的氧化钇材料</string>
           </property>
          </widget>
         </item>
@@ -71,7 +71,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="groupBox">
+     <widget class="QGroupBox" name="Frequency">
       <property name="title">
        <string>频率参数设置（以GHz为单位）</string>
       </property>
@@ -80,7 +80,7 @@
         <rect>
          <x>0</x>
          <y>20</y>
-         <width>384</width>
+         <width>391</width>
          <height>52</height>
         </rect>
        </property>
@@ -139,7 +139,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="groupBox_2">
+     <widget class="QGroupBox" name="Temperature">
       <property name="title">
        <string>温度参数设置（以K为单位）</string>
       </property>
@@ -148,7 +148,7 @@
         <rect>
          <x>0</x>
          <y>20</y>
-         <width>384</width>
+         <width>391</width>
          <height>52</height>
         </rect>
        </property>
@@ -207,77 +207,32 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="groupBox_3">
+     <widget class="QGroupBox" name="Others">
       <property name="title">
        <string>其它参数设置</string>
       </property>
-      <widget class="QWidget" name="layoutWidget_5">
+      <widget class="QLineEdit" name="MEX">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>20</y>
-         <width>384</width>
-         <height>52</height>
+         <x>190</x>
+         <y>30</y>
+         <width>141</width>
+         <height>20</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="gridLayout_3">
-        <item row="0" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_7">
-          <item>
-           <widget class="QLabel" name="label_7">
-            <property name="text">
-             <string>参数A</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="VA"/>
-          </item>
-         </layout>
-        </item>
-        <item row="0" column="1">
-         <layout class="QHBoxLayout" name="horizontalLayout_8">
-          <item>
-           <widget class="QLabel" name="label_8">
-            <property name="text">
-             <string>参数B</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="VB"/>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_9">
-          <item>
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string>参数B1</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="VB1"/>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="1">
-         <layout class="QHBoxLayout" name="horizontalLayout_10">
-          <item>
-           <widget class="QLabel" name="label_12">
-            <property name="text">
-             <string>参数E</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="VE"/>
-          </item>
-         </layout>
-        </item>
-       </layout>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>171</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>杂质金属离子或氧化物含量（ppm）</string>
+       </property>
       </widget>
      </widget>
     </item>
